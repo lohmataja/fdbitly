@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Try again!</title>
+</head>
+<body>
+Your desired alias is already in use! Try a different one:<br>
+<form method="post" action="/">
+    {{form.full_url.label}} {{ form.full_url }}
+    {{form.short_url.label}} {{ form.short_url }}
+  <p><input type="submit" value="go">
+</form>
+</body>
+</html>

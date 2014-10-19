@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Try again!</title>
+</head>
+<body>
+The short url can only contain letters, numbers, - or _. Try again!:<br>
+<form method="post" action="/">
+    {{form.full_url.label}} {{ form.full_url }}
+    {{form.short_url.label}} {{ form.short_url }}
+  <p><input type="submit" value="go">
+</form>
+</body>
+</html>
