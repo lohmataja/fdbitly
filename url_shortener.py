@@ -16,6 +16,7 @@ from wtforms import Form, StringField, validators
 
 import fdb
 import struct
+import re
 HOME_URL='http://127.0.0.1:5000/'
 
 
@@ -147,7 +148,7 @@ def index():
         # get urls from the form
         short_url = form.short_url.data
         full_url = form.full_url.data
-        if '/' in short_url:
+        if not re.match('(\w|_|-)+$', short_url):
             return render_template("invalid_short_url.html", form=form)
         try:
             short_url = add_url(db, full_url, short_url)
@@ -189,5 +190,5 @@ def show_stats(url=''):
             return render_template('page_not_found.html'), 404
         return "{} was accessed {} times.".format(url, times_accessed)
 
-# if __name__ == '__main__':
-#     app.run()
+if __name__ == '__main__':
+    app.run()
