@@ -148,7 +148,7 @@ def index():
         # get urls from the form
         short_url = form.short_url.data
         full_url = form.full_url.data
-        if not re.match('(\w|_|-)+$', short_url):
+        if short_url != '' and not re.match('(\w|_|-)+$', short_url):
             return render_template("invalid_short_url.html", form=form)
         try:
             short_url = add_url(db, full_url, short_url)
